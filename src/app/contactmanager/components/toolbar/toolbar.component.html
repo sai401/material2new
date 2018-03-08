@@ -3,4 +3,11 @@
         <mat-icon>menu</mat-icon>
     </button>
     Contact Manager
+    <span class="example-spacer"></span>
+    <button mat-button [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="openAddContactManager()">New Contact</button>
+    </mat-menu>
 </mat-toolbar>

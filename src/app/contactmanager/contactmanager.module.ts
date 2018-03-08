@@ -12,6 +12,8 @@ import { MaincontentComponent } from './components/maincontent/maincontent.compo
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { UserService } from './services/user.service';
 import { HttpClientModule } from '@angular/common/http';
+import { NotesComponent } from './components/notes/notes.component';
+import { NewContactManagerDialogComponent } from './components/new-contact-manager-dialog/new-contact-manager-dialog.component';
 
 const routes: Routes = [
   {
@@ -34,6 +36,8 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
   providers: [UserService],
-  declarations: [ContactmanagerAppComponent, ToolbarComponent, MaincontentComponent, SidenavComponent]
+  declarations: [ContactmanagerAppComponent, ToolbarComponent, MaincontentComponent, SidenavComponent, NotesComponent,
+    NewContactManagerDialogComponent],
+  entryComponents: [NewContactManagerDialogComponent]
 })
 export class ContactmanagerModule { }
