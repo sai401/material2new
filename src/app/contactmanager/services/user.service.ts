@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
+import { resolve } from 'q';
 
 @Injectable()
 export class UserService {
@@ -31,5 +32,14 @@ export class UserService {
   userId(id: number) {
     return this.datastore.users.find(x => x.id === id);
   }
+
+  addUser(user: User): Promise<User> {
+    return new Promise((resolver, reject) => {
+      user.id = this.datastore.users.length + 1;
+      this.datastore.users.push(user);
+      resolver(user);
+    });
+  }
+
 
 }

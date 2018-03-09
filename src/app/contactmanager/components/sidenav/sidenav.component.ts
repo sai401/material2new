@@ -18,6 +18,8 @@ export class SidenavComponent implements OnInit {
       zone.run(() => this.mediaMatcher = mql));
   }
   @ViewChild(MatSidenav) sidenav: MatSidenav;
+  isDarkTheme: Boolean = false;
+  toggleDirection = 'ltr';
   users: Observable<User[]>;
   ngOnInit() {
     this.users = this.userService.users;
@@ -38,6 +40,12 @@ export class SidenavComponent implements OnInit {
   }
   isScreenSmall(): boolean {
     return this.mediaMatcher.matches;
+  }
+  toggleTheme() {
+    this.isDarkTheme = !this.isDarkTheme;
+  }
+  toggleDir() {
+    this.toggleDirection = this.toggleDirection === 'rtl' ? 'ltr' : 'rtl';
   }
 
 }
